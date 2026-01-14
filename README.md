@@ -89,6 +89,8 @@ Profile update (name, avatar)
 Dark mode
 Admin roles
 Cloud Functions
+
+
 👨‍💻 Author
  Karthik
  Built as a learning-focused full-stack React + Firebase project.
