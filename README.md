@@ -1,16 +1,94 @@
-# React + Vite
+# NotesHub 🔐📝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NotesHub is a modern full-stack web application built using **React** and **Firebase**.  
+It provides secure authentication and user-specific data storage with a clean, responsive UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- User Authentication using Email & Password
+- Google Sign-In using Firebase Authentication
+- Authentication State Handling (Login / Logout)
+- Protected Routes for authorized users
+- User-specific data storage using Firebase Firestore
+- Secure Firestore Rules
+- Responsive UI (Desktop & Mobile)
+- Hosted using Firebase Hosting
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** React (Vite)
+- **Styling:** CSS / Tailwind (optional)
+- **Backend:** Firebase
+- **Authentication:** Firebase Auth
+- **Database:** Firebase Firestore
+- **Hosting:** Firebase Hosting
+
+---
+
+## 📂 Project Structure
+
+src/
+├── components/
+│ ├── Login.jsx
+│ ├── Home.jsx
+│ └── ProtectedRoute.jsx
+├── config/
+│ └── firebase.js
+├── App.jsx
+├── main.jsx
+└── index.css
+
+
+---
+
+## 🔐 Firebase Security Rules (Sample)
+js'''
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow read, write: if request.auth != null
+                          && request.auth.uid == userId;
+    }
+  }
+}
+
+▶️ Run Locally
+
+Clone the repository
+
+git clone https://github.com/your-username/noteshub.git
+
+
+Install dependencies
+
+npm install
+
+
+Start the development server
+
+npm run dev
+
+🌍 Deployment
+
+The project is deployed using Firebase Hosting.
+
+To deploy:
+
+npm run build
+firebase deploy
+
+📌 Future Enhancements
+
+Notes CRUD functionality
+Profile update (name, avatar)
+Dark mode
+Admin roles
+Cloud Functions
+👨‍💻 Author
+ Karthik
+ Built as a learning-focused full-stack React + Firebase project.
